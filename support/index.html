@@ -16,44 +16,43 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Contact Form</title>
+    <title>Support Form</title>
   </head>
   <body>
-    <form id="my-form" action="https://formspree.io/f/xknkkkyg" method="POST">
-      <label>Email:</label>
-      <input type="email" name="email" />
-      <label>Message:</label>
-      <input type="text" name="message" />
-      <button id="my-form-button">Submit</button>
-      <p id="my-form-status"></p>
-    </form>
+  
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mr-auto">
+          <h2>Support</h2>
+          <p class="mb-5">Need help? Send me an email.</p>
+        </div>
+
+        <div class="col-md-6">
+          <form id="my-form" action="https://formspree.io/f/xknkkkyg" method="POST">
+            <label>Email:</label>
+            <input type="email" name="email" />
+            <label>Message:</label>
+            <input type="text" name="message" />
+            <button id="my-form-button">Submit</button>
+            <p id="my-form-status"></p>
+          </form>
+
+          <div id="form-message-warning mt-4"></div> 
+          <div id="form-message-success">
+            Your message was sent, thank you!
+          </div>
+        </div>
+      </div>
+  </div>
+    
+    
+
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/main.js"></script>
-
-    <script>
-      var form = document.getElementById("my-form");
-      
-      async function handleSubmit(event) {
-        event.preventDefault();
-        var status = document.getElementById("my-form-status");
-        var data = new FormData(event.target);
-        fetch(event.target.action, {
-          method: form.method,
-          body: data,
-          headers: {
-              'Accept': 'application/json'
-          }
-        }).then(response => {
-          status.innerHTML = "Thanks for your submission!";
-          form.reset()
-        }).catch(error => {
-          status.innerHTML = "Oops! There was a problem submitting your form"
-        });
-      }
-      form.addEventListener("submit", handleSubmit)
-    </script>
   </body>
 </html>
